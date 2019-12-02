@@ -1,0 +1,10 @@
+C:\Users\Alumnos-UNAJ\Documents\SharpDevelop Projects\crear arbol miniMAx\crear arbol miniMAx\obj\Debug\crear arbol miniMAx.csprojResolveAssemblyReference.cache
+C:\Users\Alumnos-UNAJ\Documents\SharpDevelop Projects\crear arbol miniMAx\crear arbol miniMAx\bin\Debug\crear arbol miniMAx.exe
+C:\Users\Alumnos-UNAJ\Documents\SharpDevelop Projects\crear arbol miniMAx\crear arbol miniMAx\bin\Debug\crear arbol miniMAx.pdb
+C:\Users\Alumnos-UNAJ\Documents\SharpDevelop Projects\crear arbol miniMAx\crear arbol miniMAx\obj\Debug\crear arbol miniMAx.exe
+C:\Users\Alumnos-UNAJ\Documents\SharpDevelop Projects\crear arbol miniMAx\crear arbol miniMAx\obj\Debug\crear arbol miniMAx.pdb
+C:\Users\daiana.a.avila\Desktop\crear arbol miniMAx\crear arbol miniMAx\bin\Debug\crear arbol miniMAx.exe
+C:\Users\daiana.a.avila\Desktop\crear arbol miniMAx\crear arbol miniMAx\bin\Debug\crear arbol miniMAx.pdb
+C:\Users\daiana.a.avila\Desktop\crear arbol miniMAx\crear arbol miniMAx\obj\Debug\crear arbol miniMAx.csprojResolveAssemblyReference.cache
+C:\Users\daiana.a.avila\Desktop\crear arbol miniMAx\crear arbol miniMAx\obj\Debug\crear arbol miniMAx.exe
+C:\Users\daiana.a.avila\Desktop\crear arbol miniMAx\crear arbol miniMAx\obj\Debug\crear arbol miniMAx.pdb
