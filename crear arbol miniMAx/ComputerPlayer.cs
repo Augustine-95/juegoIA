@@ -81,14 +81,21 @@ namespace juegoIA
 				lnueva.Add(i);
 			}
 		}
-			
+		
 		public override int descartarUnaCarta()
 		{
 			int cartaADescartar=0;
-			devolverCartas();
 			int mayor=-1000;
 			int evaluacion;
-			
+
+			Console.WriteLine("Naipes disponibles (Computer):");
+			for (int i = 0; i < cartas.Count; i++) {
+				Console.Write(cartas[i].ToString());
+				if (i<cartas.Count-1) {
+					Console.Write(", ");
+				}
+			}
+			Console.WriteLine();
 			Console.WriteLine("Carta eliminada:");
 			
 			foreach (NodoGeneral hijo in arbol.raiz.getHijos())
@@ -97,43 +104,64 @@ namespace juegoIA
 				{
 					foreach(NodoGeneral nieto in hijo.getHijos())
 					{
-						evaluacion= evaluarNodo(nieto,"PC");
-						if(evaluacion > mayor)
+						if(limite - nieto.getDato() > 0)
 						{
-							mayor=evaluacion;
-							cartaADescartar= nieto.getDato();
-							this.arbol.raiz.setHijos(nieto.getHijos());
+							evaluacion= evaluarNodo(nieto,"PC");
+							if(evaluacion > mayor)
+							{
+								mayor=evaluacion;
+								cartaADescartar= nieto.getDato();
+							}
 						}
 					}
-				}
-			}
-			
-			if(cartaADescartar >= limite)
-			{
-				cartas.Sort();
-				foreach(int c in cartas)
-				{
-					if(c< limite)
-					{
-						cartaADescartar= c;
-					}
-				}
-				//cartaADescartar= cartas[0];
-
-			}
-			
-			if(cartaADescartar == 0)
-			{
-				cartas.Sort();
-				cartaADescartar= cartas[0];
-			}
 					
-			this.cartas.Remove(cartaADescartar);
+					/*if(cartaADescartar >= limite)
+					{
+						cartas.Sort();
+						foreach(int c in cartas)
+						{
+							if(c< limite)
+							{
+								cartaADescartar= c;
+							}
+						}
+					}*/
+					
+					if(cartaADescartar == 0)
+					{
+						cartas.Sort();
+						foreach(int c in cartas)
+						{
+							if(c< limite)
+							{
+								cartaADescartar= c;
+							}
+						}
+
+					}
+					
+					if(cartaADescartar == 0)
+					{
+						cartaADescartar= cartas[0];
+					}
+					
+					foreach(NodoGeneral n in hijo.getHijos())
+					{
+						if (n.getDato() == cartaADescartar)
+						{
+							arbol.raiz.setHijos(n.getHijos());
+						}
+					}
+					
+				}
+			}
+			
+			cartas.Remove(cartaADescartar);
 			limite-= cartaADescartar;
 			
 			return cartaADescartar;
 		}
-				
+		
 		private int evaluarNodo(NodoGeneral nodo, string tipo)
 		{
 			
@@ -202,16 +230,6 @@ namespace juegoIA
 			limite-=carta;
 		}
 		
-		
-		public void devolverCartas()
-		{
-			string cartas="";
-			foreach(int c in this.cartas)
-			{
-				cartas+=c+" ";
-			}
-			Console.WriteLine("Cartas bot: "+cartas);
-		}
 	}
 
 }
