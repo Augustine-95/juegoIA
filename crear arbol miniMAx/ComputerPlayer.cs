@@ -87,37 +87,78 @@ namespace juegoIA
 		{
 			int cartaADescartar=0;
 			devolverCartas();
-			int mayor=0;
+			int mayor=-1000;
 			int evaluacion;
+			
 			Console.WriteLine("Carta eliminada:");
-		
 			
 			foreach (NodoGeneral hijo in arbol.raiz.getHijos())
 			{
 				if( hijo.getDato() == cartaOponente)
 				{
 					foreach(NodoGeneral nieto in hijo.getHijos())
-					{
-						if(limite >= nieto.getDato())
-						{
-							evaluacion= evaluarNodo(nieto);
+					{				
+							evaluacion= evaluarNodo(nieto,"PC");
 							if(evaluacion > mayor)
 							{
 								mayor=evaluacion;
 								cartaADescartar= nieto.getDato();
 								this.arbol.raiz.setHijos(nieto.getHijos());
-							}
-						}
-						
+							}				
 					}
 				}
+			}
+			
+			if (cartaADescartar > limite)
+			{
+				cartas.Sort();
+				cartaADescartar= cartas[0];
+
 			}
 			this.cartas.Remove(cartaADescartar);
 			
 			return cartaADescartar;
 		}
 		
-		private int evaluarNodo(NodoGeneral nodo)
+		
+		private int evaluarNodo(NodoGeneral nodo, string tipo)
+		{
+			
+			int total= 0;
+			
+			if(nodo.getLimite() <= 0)
+			{
+				if(tipo == "PC")
+				{
+					total= 1;
+				}
+				else
+				{
+					total= -1;
+				}
+			}
+			else
+			{
+				if(nodo.getHijos().Count != 0)
+				{
+					if(tipo == "PC")
+					{
+						tipo= "user";
+					}
+					else
+					{
+						tipo= "PC";
+					}
+					foreach(NodoGeneral n in nodo.getHijos())
+					{
+						total+=evaluarNodo(n,tipo);
+					}
+				}
+			}
+			return total;
+		}
+		
+		private int evaluarNodo2(NodoGeneral nodo)
 		{
 			int may=0;
 			int mayAux;
@@ -130,7 +171,7 @@ namespace juegoIA
 			{
 				foreach (NodoGeneral n in nodo.getHijos())
 				{
-					mayAux= n.getLimite()+evaluarNodo(n);
+					mayAux= n.getLimite()+evaluarNodo2(n);
 					if(mayAux > may)
 					{
 						may=mayAux;
@@ -140,13 +181,14 @@ namespace juegoIA
 			
 			return may;
 		}
-
+		
 		
 		public override void cartaDelOponente(int carta)
 		{
 			cartaOponente= carta;
-			limite-=carta;			
+			limite-=carta;
 		}
+		
 		
 		public void devolverCartas()
 		{

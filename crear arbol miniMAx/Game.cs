@@ -63,7 +63,9 @@ namespace juegoIA
 				naipes.Remove(carta);
 				limite -= carta;
 				oponente.cartaDelOponente(carta);
+				{
 				juegaHumano = !juegaHumano;
+				}
 			}
 		}
 		
@@ -81,7 +83,7 @@ namespace juegoIA
 		
 		private bool fin()
 		{
-			return limite < 0;
+			return limite <= 0;
 		}
 		
 		

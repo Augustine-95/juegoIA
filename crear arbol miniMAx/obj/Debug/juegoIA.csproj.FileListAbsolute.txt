@@ -3,3 +3,8 @@ C:\Users\daiana.a.avila\Desktop\crear arbol miniMAx\crear arbol miniMAx\bin\Debu
 C:\Users\daiana.a.avila\Desktop\crear arbol miniMAx\crear arbol miniMAx\obj\Debug\juegoIA.csprojResolveAssemblyReference.cache
 C:\Users\daiana.a.avila\Desktop\crear arbol miniMAx\crear arbol miniMAx\obj\Debug\juegoIA.exe
 C:\Users\daiana.a.avila\Desktop\crear arbol miniMAx\crear arbol miniMAx\obj\Debug\juegoIA.pdb
+C:\Users\daiana.a.avila\Desktop\GIT\juegoIA\crear arbol miniMAx\bin\Debug\juegoIA.exe
+C:\Users\daiana.a.avila\Desktop\GIT\juegoIA\crear arbol miniMAx\bin\Debug\juegoIA.pdb
+C:\Users\daiana.a.avila\Desktop\GIT\juegoIA\crear arbol miniMAx\obj\Debug\juegoIA.csprojResolveAssemblyReference.cache
+C:\Users\daiana.a.avila\Desktop\GIT\juegoIA\crear arbol miniMAx\obj\Debug\juegoIA.exe
+C:\Users\daiana.a.avila\Desktop\GIT\juegoIA\crear arbol miniMAx\obj\Debug\juegoIA.pdb
