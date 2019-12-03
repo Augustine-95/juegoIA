@@ -81,8 +81,7 @@ namespace juegoIA
 				lnueva.Add(i);
 			}
 		}
-		
-		
+			
 		public override int descartarUnaCarta()
 		{
 			int cartaADescartar=0;
@@ -134,8 +133,7 @@ namespace juegoIA
 			
 			return cartaADescartar;
 		}
-		
-		
+				
 		private int evaluarNodo(NodoGeneral nodo, string tipo)
 		{
 			
