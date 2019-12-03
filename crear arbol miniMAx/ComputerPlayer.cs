@@ -8,7 +8,7 @@ namespace juegoIA
 	public class ComputerPlayer: Jugador
 	{
 		private ArbolGeneral arbol;
-		private int limite;
+		private int limite=0;
 		private int cartaOponente;
 		private List<int> cartas;
 		
@@ -97,25 +97,40 @@ namespace juegoIA
 				if( hijo.getDato() == cartaOponente)
 				{
 					foreach(NodoGeneral nieto in hijo.getHijos())
-					{				
-							evaluacion= evaluarNodo(nieto,"PC");
-							if(evaluacion > mayor)
-							{
-								mayor=evaluacion;
-								cartaADescartar= nieto.getDato();
-								this.arbol.raiz.setHijos(nieto.getHijos());
-							}				
+					{
+						evaluacion= evaluarNodo(nieto,"PC");
+						if(evaluacion > mayor)
+						{
+							mayor=evaluacion;
+							cartaADescartar= nieto.getDato();
+							this.arbol.raiz.setHijos(nieto.getHijos());
+						}
 					}
 				}
 			}
 			
-			if (cartaADescartar > limite)
+			if(cartaADescartar >= limite)
+			{
+				cartas.Sort();
+				foreach(int c in cartas)
+				{
+					if(c< limite)
+					{
+						cartaADescartar= c;
+					}
+				}
+				//cartaADescartar= cartas[0];
+
+			}
+			
+			if(cartaADescartar == 0)
 			{
 				cartas.Sort();
 				cartaADescartar= cartas[0];
-
 			}
+					
 			this.cartas.Remove(cartaADescartar);
+			limite-= cartaADescartar;
 			
 			return cartaADescartar;
 		}
